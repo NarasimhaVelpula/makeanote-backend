@@ -62,6 +62,9 @@ const updateNoteContent=async(req,res)=>{
             res.status(400).send({"msg":"Usernot found hacked"})
         }
     }
+    else{
+        res.status(404).send("not a valid authtoken")
+    }
 }
 
 
