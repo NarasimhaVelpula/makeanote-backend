@@ -318,7 +318,8 @@ const deleteContributers=async(req,res)=>{
             if(users.includes(contributer.email)){
                 let requiredUser=await User.findOne({email:contributer.email})
                 console.log(requiredUser)
-                requiredUser.contributedNotes.pop(id)
+                let ind=requiredUser.contributedNotes.findIndex(id)
+                requiredUser.contributedNotes.splice(ind,1)
                 let updateUser=await User.findByIdAndUpdate(requiredUser._id,requiredUser)
                 return null
             }
