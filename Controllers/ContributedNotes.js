@@ -135,9 +135,9 @@ const addContributionLink=async(req,res)=>{
        
         let expDate=new Date(expiryTime)
         let cd=new Date()
-       
+        console.log(cd)
         let expirySeconds=(expDate.getTime()-cd.getTime())%1000
-      
+        console.log(expirySeconds)
         console.log("exipiryseconds",expirySeconds)
         let jwt_token=jwt.sign({id:id,name:name},process.env.LINK_TOKEN,{expiresIn:expirySeconds})
         link.link=jwt_token
